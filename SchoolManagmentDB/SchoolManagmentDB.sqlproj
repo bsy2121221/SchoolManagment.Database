@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SchoolManagmentDB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{e8263212-03c4-4ce5-8e07-cfff24b4016f}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql170DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>SchoolManagmentDB</RootNamespace>
+    <AssemblyName>SchoolManagmentDB</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="_Legacy" />
+    <Folder Include="Functions" />
+    <Folder Include="Migrations" />
+    <Folder Include="Scripts" />
+    <Folder Include="SeedData" />
+    <Folder Include="StoredProcedures" />
+    <Folder Include="Tables" />
+    <Folder Include="Views" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="_Legacy\00_Drop_All.sql" />
+    <Build Include="_Legacy\01_Schema.sql" />
+    <Build Include="_Legacy\02_Functions.sql" />
+    <Build Include="_Legacy\03_Procs_Platform.sql" />
+    <Build Include="_Legacy\04_Procs_Auth.sql" />
+    <Build Include="_Legacy\05_Procs_Users.sql" />
+    <Build Include="_Legacy\06_Procs_Students.sql" />
+    <Build Include="_Legacy\07_Procs_Teachers.sql" />
+    <Build Include="_Legacy\08_Procs_Classes.sql" />
+    <Build Include="_Legacy\09_Procs_Attendance.sql" />
+    <Build Include="_Legacy\10_Procs_Academics.sql" />
+    <Build Include="_Legacy\11_Procs_Fees.sql" />
+    <Build Include="_Legacy\12_Procs_Schedule.sql" />
+    <Build Include="_Legacy\13_Procs_Settings.sql" />
+    <Build Include="_Legacy\14_Procs_Dashboard.sql" />
+    <Build Include="_Legacy\15_Seed.sql" />
+    <Build Include="_Legacy\16_Verify.sql" />
+    <Build Include="_Legacy\17_Procs_Parents.sql" />
+    <Build Include="Functions\fn_AcademicYear.sql" />
+    <Build Include="Functions\fn_CalculateGrade.sql" />
+    <Build Include="Functions\fn_DayName.sql" />
+    <Build Include="Functions\fn_GenerateParentUsername.sql" />
+    <Build Include="Functions\fn_GenerateReceiptNumber.sql" />
+    <Build Include="Functions\fn_GenerateStudentId.sql" />
+    <Build Include="Functions\fn_GenerateStudentUsername.sql" />
+    <Build Include="Functions\fn_GenerateTeacherEmployeeId.sql" />
+    <Build Include="Functions\fn_GenerateTeacherUsername.sql" />
+    <Build Include="Functions\fn_RoleId.sql" />
+    <Build Include="Functions\fn_RoleName.sql" />
+    <Build Include="Functions\fn_SanitizeCode.sql" />
+    <Build Include="Functions\fn_SchoolCode.sql" />
+    <Build Include="Migrations\001_InitialDatabase.sql" />
+    <Build Include="Migrations\002_Example_AddColumn.sql" />
+    <Build Include="Scripts\DatabaseConfiguration.sql" />
+    <Build Include="Scripts\DatabaseCreation.sql" />
+    <Build Include="Scripts\DropAll.sql" />
+    <Build Include="Scripts\ForeignKeys.sql" />
+    <Build Include="Scripts\Indexes.sql" />
+    <Build Include="Scripts\Verify.sql" />
+    <Build Include="SeedData\InitialData.sql" />
+    <Build Include="SeedData\RolePermissions.sql" />
+    <Build Include="SeedData\Roles.sql" />
+    <Build Include="StoredProcedures\sp_AddOrUpdateResult.sql" />
+    <Build Include="StoredProcedures\sp_AssertSchool.sql" />
+    <Build Include="StoredProcedures\sp_AssignFeesToStudent.sql" />
+    <Build Include="StoredProcedures\sp_AssignFeeToClass.sql" />
+    <Build Include="StoredProcedures\sp_AssignSubjectsToStudent.sql" />
+    <Build Include="StoredProcedures\sp_AssignSubjectsToTeacher.sql" />
+    <Build Include="StoredProcedures\sp_AssignTeacherToSubjectClass.sql" />
+    <Build Include="StoredProcedures\sp_BulkGradeEntry.sql" />
+    <Build Include="StoredProcedures\sp_CancelFee.sql" />
+    <Build Include="StoredProcedures\sp_ChangePassword.sql" />
+    <Build Include="StoredProcedures\sp_ChangeUserRole.sql" />
+    <Build Include="StoredProcedures\sp_CheckEmailAvailability.sql" />
+    <Build Include="StoredProcedures\sp_CleanupExpiredRefreshTokens.sql" />
+    <Build Include="StoredProcedures\sp_CreateClass.sql" />
+    <Build Include="StoredProcedures\sp_CreateFeeType.sql" />
+    <Build Include="StoredProcedures\sp_CreateOrUpdateExamination.sql" />
+    <Build Include="StoredProcedures\sp_CreateOrUpdateScheduleEntry.sql" />
+    <Build Include="StoredProcedures\sp_CreateRefreshToken.sql" />
+    <Build Include="StoredProcedures\sp_CreateRole.sql" />
+    <Build Include="StoredProcedures\sp_CreateSchool.sql" />
+    <Build Include="StoredProcedures\sp_CreateSchoolAdmin.sql" />
+    <Build Include="StoredProcedures\sp_CreateStudentFee.sql" />
+    <Build Include="StoredProcedures\sp_CreateSubject.sql" />
+    <Build Include="StoredProcedures\sp_CreateUser.sql" />
+    <Build Include="StoredProcedures\sp_CreateUserAccount.sql" />
+    <Build Include="StoredProcedures\sp_DeleteClass.sql" />
+    <Build Include="StoredProcedures\sp_DeleteExamination.sql" />
+    <Build Include="StoredProcedures\sp_DeleteFeeType.sql" />
+    <Build Include="StoredProcedures\sp_DeleteParent.sql" />
+    <Build Include="StoredProcedures\sp_DeleteProfilePicture.sql" />
+    <Build Include="StoredProcedures\sp_DeleteRole.sql" />
+    <Build Include="StoredProcedures\sp_DeleteRolePermission.sql" />
+    <Build Include="StoredProcedures\sp_DeleteScheduleEntry.sql" />
+    <Build Include="StoredProcedures\sp_DeleteSetting.sql" />
+    <Build Include="StoredProcedures\sp_DeleteStudent.sql" />
+    <Build Include="StoredProcedures\sp_DeleteSubject.sql" />
+    <Build Include="StoredProcedures\sp_DeleteTeacher.sql" />
+    <Build Include="StoredProcedures\sp_DeleteUser.sql" />
+    <Build Include="StoredProcedures\sp_ForcePasswordChange.sql" />
+    <Build Include="StoredProcedures\sp_GetAllClasses.sql" />
+    <Build Include="StoredProcedures\sp_GetAllParents.sql" />
+    <Build Include="StoredProcedures\sp_GetAllSettings.sql" />
+    <Build Include="StoredProcedures\sp_GetAllStudents.sql" />
+    <Build Include="StoredProcedures\sp_GetAllSubjects.sql" />
+    <Build Include="StoredProcedures\sp_GetAllSubjectsForTeacher.sql" />
+    <Build Include="StoredProcedures\sp_GetAllUsers.sql" />
+    <Build Include="StoredProcedures\sp_GetAttendanceSummary.sql" />
+    <Build Include="StoredProcedures\sp_GetAvailableTeachers.sql" />
+    <Build Include="StoredProcedures\sp_GetChildrenByParent.sql" />
+    <Build Include="StoredProcedures\sp_GetClassAttendance.sql" />
+    <Build Include="StoredProcedures\sp_GetClassById.sql" />
+    <Build Include="StoredProcedures\sp_GetClassDetails.sql" />
+    <Build Include="StoredProcedures\sp_GetClassSchedule.sql" />
+    <Build Include="StoredProcedures\sp_GetClassStats.sql" />
+    <Build Include="StoredProcedures\sp_GetClassStudents.sql" />
+    <Build Include="StoredProcedures\sp_GetDailyAttendanceReport.sql" />
+    <Build Include="StoredProcedures\sp_GetDashboardStats.sql" />
+    <Build Include="StoredProcedures\sp_GetExaminationById.sql" />
+    <Build Include="StoredProcedures\sp_GetExaminationResults.sql" />
+    <Build Include="StoredProcedures\sp_GetExaminations.sql" />
+    <Build Include="StoredProcedures\sp_GetFeeCollectionSummary.sql" />
+    <Build Include="StoredProcedures\sp_GetFeeDetails.sql" />
+    <Build Include="StoredProcedures\sp_GetFeeTypeById.sql" />
+    <Build Include="StoredProcedures\sp_GetFeeTypes.sql" />
+    <Build Include="StoredProcedures\sp_GetOutstandingFees.sql" />
+    <Build Include="StoredProcedures\sp_GetParentById.sql" />
+    <Build Include="StoredProcedures\sp_GetParentProfile.sql" />
+    <Build Include="StoredProcedures\sp_GetParentsByStudent.sql" />
+    <Build Include="StoredProcedures\sp_GetPaymentHistory.sql" />
+    <Build Include="StoredProcedures\sp_GetPlatformStats.sql" />
+    <Build Include="StoredProcedures\sp_GetProfileActivities.sql" />
+    <Build Include="StoredProcedures\sp_GetProfilePicture.sql" />
+    <Build Include="StoredProcedures\sp_GetReceipt.sql" />
+    <Build Include="StoredProcedures\sp_GetRefreshToken.sql" />
+    <Build Include="StoredProcedures\sp_GetRefreshTokenStats.sql" />
+    <Build Include="StoredProcedures\sp_GetRoleById.sql" />
+    <Build Include="StoredProcedures\sp_GetRolePermissions.sql" />
+    <Build Include="StoredProcedures\sp_GetRoles.sql" />
+    <Build Include="StoredProcedures\sp_GetSchoolBranding.sql" />
+    <Build Include="StoredProcedures\sp_GetSchoolByCode.sql" />
+    <Build Include="StoredProcedures\sp_GetSchoolById.sql" />
+    <Build Include="StoredProcedures\sp_GetSchoolBySubdomain.sql" />
+    <Build Include="StoredProcedures\sp_GetSchools.sql" />
+    <Build Include="StoredProcedures\sp_GetSchoolUsageReport.sql" />
+    <Build Include="StoredProcedures\sp_GetSettingByKey.sql" />
+    <Build Include="StoredProcedures\sp_GetSettingsByCategory.sql" />
+    <Build Include="StoredProcedures\sp_GetStudentAttendance.sql" />
+    <Build Include="StoredProcedures\sp_GetStudentById.sql" />
+    <Build Include="StoredProcedures\sp_GetStudentChildren.sql" />
+    <Build Include="StoredProcedures\sp_GetStudentFees.sql" />
+    <Build Include="StoredProcedures\sp_GetStudentProfile.sql" />
+    <Build Include="StoredProcedures\sp_GetStudentProfileStats.sql" />
+    <Build Include="StoredProcedures\sp_GetStudentResults.sql" />
+    <Build Include="StoredProcedures\sp_GetStudentsByClass.sql" />
+    <Build Include="StoredProcedures\sp_GetStudentsForClass.sql" />
+    <Build Include="StoredProcedures\sp_GetStudentsForGradeEntry.sql" />
+    <Build Include="StoredProcedures\sp_GetStudentSubjects.sql" />
+    <Build Include="StoredProcedures\sp_GetStudentsWithDetails.sql" />
+    <Build Include="StoredProcedures\sp_GetSubjectById.sql" />
+    <Build Include="StoredProcedures\sp_GetSubjects.sql" />
+    <Build Include="StoredProcedures\sp_GetTeacherByUserId.sql" />
+    <Build Include="StoredProcedures\sp_GetTeacherClasses.sql" />
+    <Build Include="StoredProcedures\sp_GetTeacherCurrentAndNextClasses.sql" />
+    <Build Include="StoredProcedures\sp_GetTeacherProfile.sql" />
+    <Build Include="StoredProcedures\sp_GetTeacherProfileStats.sql" />
+    <Build Include="StoredProcedures\sp_GetTeacherSchedule.sql" />
+    <Build Include="StoredProcedures\sp_GetTeacherScheduleByDay.sql" />
+    <Build Include="StoredProcedures\sp_GetTeacherScheduleStats.sql" />
+    <Build Include="StoredProcedures\sp_GetTeacherSubjectAssignments.sql" />
+    <Build Include="StoredProcedures\sp_GetTeacherSubjects.sql" />
+    <Build Include="StoredProcedures\sp_GetTeachersWithDetails.sql" />
+    <Build Include="StoredProcedures\sp_GetUserActivityLog.sql" />
+    <Build Include="StoredProcedures\sp_GetUserById.sql" />
+    <Build Include="StoredProcedures\sp_GetUserDetails.sql" />
+    <Build Include="StoredProcedures\sp_GetUserPermissions.sql" />
+    <Build Include="StoredProcedures\sp_GetUserRefreshTokens.sql" />
+    <Build Include="StoredProcedures\sp_GetUserStats.sql" />
+    <Build Include="StoredProcedures\sp_LinkStudentParent.sql" />
+    <Build Include="StoredProcedures\sp_LogAudit.sql" />
+    <Build Include="StoredProcedures\sp_Login.sql" />
+    <Build Include="StoredProcedures\sp_LoginWithRefreshToken.sql" />
+    <Build Include="StoredProcedures\sp_MakeFeePayment.sql" />
+    <Build Include="StoredProcedures\sp_MarkAttendance.sql" />
+    <Build Include="StoredProcedures\sp_MarkAttendanceBulk.sql" />
+    <Build Include="StoredProcedures\sp_NextSequence.sql" />
+    <Build Include="StoredProcedures\sp_PeekSequence.sql" />
+    <Build Include="StoredProcedures\sp_PreviewStudentUsername.sql" />
+    <Build Include="StoredProcedures\sp_PreviewTeacherUsername.sql" />
+    <Build Include="StoredProcedures\sp_PromoteStudent.sql" />
+    <Build Include="StoredProcedures\sp_RecordLogin.sql" />
+    <Build Include="StoredProcedures\sp_RefundPayment.sql" />
+    <Build Include="StoredProcedures\sp_RegisterParent.sql" />
+    <Build Include="StoredProcedures\sp_RegisterStudent.sql" />
+    <Build Include="StoredProcedures\sp_RegisterTeacher.sql" />
+    <Build Include="StoredProcedures\sp_RemoveStudentSubject.sql" />
+    <Build Include="StoredProcedures\sp_ResetPassword.sql" />
+    <Build Include="StoredProcedures\sp_ResetSettings.sql" />
+    <Build Include="StoredProcedures\sp_ResolveRole.sql" />
+    <Build Include="StoredProcedures\sp_RevokeAllUserRefreshTokens.sql" />
+    <Build Include="StoredProcedures\sp_RevokeRefreshToken.sql" />
+    <Build Include="StoredProcedures\sp_SaveMultipleSettings.sql" />
+    <Build Include="StoredProcedures\sp_SaveRolePermission.sql" />
+    <Build Include="StoredProcedures\sp_SaveSetting.sql" />
+    <Build Include="StoredProcedures\sp_SearchUsers.sql" />
+    <Build Include="StoredProcedures\sp_SeedSchoolSettings.sql" />
+    <Build Include="StoredProcedures\sp_ToggleSchoolStatus.sql" />
+    <Build Include="StoredProcedures\sp_ToggleUserStatus.sql" />
+    <Build Include="StoredProcedures\sp_UnlinkStudentParent.sql" />
+    <Build Include="StoredProcedures\sp_UpdateClass.sql" />
+    <Build Include="StoredProcedures\sp_UpdateClassStatus.sql" />
+    <Build Include="StoredProcedures\sp_UpdateFee.sql" />
+    <Build Include="StoredProcedures\sp_UpdateFeeType.sql" />
+    <Build Include="StoredProcedures\sp_UpdateParent.sql" />
+    <Build Include="StoredProcedures\sp_UpdateProfilePicture.sql" />
+    <Build Include="StoredProcedures\sp_UpdateRole.sql" />
+    <Build Include="StoredProcedures\sp_UpdateSchool.sql" />
+    <Build Include="StoredProcedures\sp_UpdateStudent.sql" />
+    <Build Include="StoredProcedures\sp_UpdateStudentProfile.sql" />
+    <Build Include="StoredProcedures\sp_UpdateSubject.sql" />
+    <Build Include="StoredProcedures\sp_UpdateSubjectStatus.sql" />
+    <Build Include="StoredProcedures\sp_UpdateTeacherDetails.sql" />
+    <Build Include="StoredProcedures\sp_UpdateTeacherProfile.sql" />
+    <Build Include="StoredProcedures\sp_UpdateUser.sql" />
+    <Build Include="StoredProcedures\sp_UpdateUserIdentity.sql" />
+    <Build Include="StoredProcedures\sp_UpdateUserProfile.sql" />
+    <Build Include="StoredProcedures\sp_UpdateUserStatus.sql" />
+    <Build Include="StoredProcedures\sp_UpsertAddress.sql" />
+    <Build Include="StoredProcedures\sp_UpsertPerson.sql" />
+    <Build Include="StoredProcedures\sp_ValidateRefreshToken.sql" />
+    <Build Include="Tables\Addresses.sql" />
+    <Build Include="Tables\Attendance.sql" />
+    <Build Include="Tables\AuditLog.sql" />
+    <Build Include="Tables\Classes.sql" />
+    <Build Include="Tables\Examinations.sql" />
+    <Build Include="Tables\FeePayments.sql" />
+    <Build Include="Tables\Fees.sql" />
+    <Build Include="Tables\FeeTypes.sql" />
+    <Build Include="Tables\Parents.sql" />
+    <Build Include="Tables\Persons.sql" />
+    <Build Include="Tables\RefreshTokens.sql" />
+    <Build Include="Tables\Results.sql" />
+    <Build Include="Tables\RolePermissions.sql" />
+    <Build Include="Tables\Roles.sql" />
+    <Build Include="Tables\Schools.sql" />
+    <Build Include="Tables\SchoolSequences.sql" />
+    <Build Include="Tables\Settings.sql" />
+    <Build Include="Tables\StudentParents.sql" />
+    <Build Include="Tables\Students.sql" />
+    <Build Include="Tables\StudentSubjects.sql" />
+    <Build Include="Tables\Subjects.sql" />
+    <Build Include="Tables\Teachers.sql" />
+    <Build Include="Tables\TeacherSchedule.sql" />
+    <Build Include="Tables\TeacherSubjectAssignments.sql" />
+    <Build Include="Tables\TeacherSubjects.sql" />
+    <Build Include="Tables\Users.sql" />
+    <Build Include="Views\vw_Users.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Deploy.ps1" />
+    <None Include=".gitignore" />
+    <None Include="README.md" />
+  </ItemGroup>
+</Project>

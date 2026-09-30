@@ -1,0 +1,20 @@
+# Local SQL tooling / backups
+*.bak
+*.trn
+*.log
+*.rdl.data
+*.mdf
+*.ldf
+*.jrs
+
+# Editor / OS
+.vs/
+.vscode/
+*.user
+*.suo
+Thumbs.db
+Desktop.ini
+
+# Secrets / local overrides
+.env
+.env.*
